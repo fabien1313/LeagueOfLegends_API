@@ -1,10 +1,11 @@
 const championOne = document.getElementById('aatrox')
 const championTest = document.getElementById('test')
+const championTest1 = document.getElementById('test1')
 
 // championOne.innerHTML = 'hello'
 
 
-const leagueoflegendsApi = 'http://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/champion.json'
+const leagueoflegendsApi = 'http://ddragon.leagueoflegends.com/cdn/12.23.1/data/en_US/champion.json'
 
 fetch(leagueoflegendsApi)
     .then(response => {
@@ -13,13 +14,13 @@ fetch(leagueoflegendsApi)
         
 
     }).then (data => {
-        let champArray = Object.keys(data.data)
+        let champArray = Object.keys(data.data) // crreates array of the first key values in the data object
         for (let index = 0; index < champArray.length; index++) {
             const champIndex = champArray[index];
-            let firstAttempt = (data.data[champIndex])
+            let firstAttempt = (data.data[champIndex]) // all 162 champion objects
             let splashImage = (data.data[champIndex].image.full)
             let splashUrl = "http://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/"+splashImage
-            let champName = Object.keys(data.data).indexOf(champIndex)
+            let champName = Object.keys(data.data).indexOf(champIndex) // returns index values 0-162
 
             
             let {data: 
@@ -37,9 +38,13 @@ fetch(leagueoflegendsApi)
                     }}
             } = data
 
-            console.log([champIndex], firstAttempt);
+            console.log(champIndex);
 
-            championTest.innerHTML = champIndex
+            
+           
+
+         
+            
 
        
 
